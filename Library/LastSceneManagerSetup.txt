@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/TestRotationScene.unity
+  isLoaded: 1
+  isActive: 1
