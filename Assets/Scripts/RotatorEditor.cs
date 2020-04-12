@@ -12,7 +12,7 @@ namespace com.technical.test
     {
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
-
+            
             //Add a button at the end of the Rotator script to open the custom window
             if (GUILayout.Button("Rotators Mass Setter")) {
                 MultipleRotatorEditorWindow.ShowWindow();
