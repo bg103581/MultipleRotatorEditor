@@ -11,19 +11,20 @@ namespace com.technical.test
     public class MultipleRotatorEditorWindow : EditorWindow
     {
         #region Variables
-        private string _editorIdentifier;
+        private string _editorIdentifier;                   //Store variables of the fields
         public float _editorTimeBeforeStoppingInSeconds;
         private bool _editorShouldReverseRotation;
         private RotationSettings _editorRotationsSettings;
 
-        private bool _setId, _setTimeStop, _setReverseRot, _setObjectToRotate, _setAngleRot, _setTimeRot;
+        private bool _setId, _setTimeStop, _setReverseRot, _setObjectToRotate, _setAngleRot, _setTimeRot;   //Checkboxes
 
         [SerializeField]
-        private Rotator[] _rotatorsToEdit;
+        private Rotator[] _rotatorsToEdit;  //selected rotators
 
         private Vector2 _scrollPosition;
         #endregion
 
+        //Open editor window in the Window menu
         [MenuItem("Window/Custom/Rotators Mass Setter")]
         public static void ShowWindow() {
             GetWindow<MultipleRotatorEditorWindow>("Rotators Mass Setter");
@@ -99,6 +100,7 @@ namespace com.technical.test
             #endregion
         }
 
+        //Set the parameters of the selected Rotators from the Editor
         private void ValidateChanges() {
             foreach (Rotator rotator in _rotatorsToEdit) {
                 UpdateRotatorInformations(rotator);
@@ -140,7 +142,7 @@ namespace com.technical.test
 
         private void DisplaySelectedRotators() {
             if (_rotatorsToEdit != null) {
-                foreach (Rotator rotator in _rotatorsToEdit) {
+                foreach (Rotator rotator in _rotatorsToEdit) {  //in playmode "rotator" becomes null for some reason so the rotators are not displayed
                     if (rotator != null) {
                         Editor rotatorEditor = Editor.CreateEditor(rotator);
 
